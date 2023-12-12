@@ -28,7 +28,8 @@ class UpdateStudentRequest extends FormRequest
             'name'          => 'required|min:3',
             'email'         => 'required|email',
             'date_of_birth' => 'required',
-            'gender'        => 'required'
+            'gender'        => 'required',
+            'image'         => 'mimes:jpeg,jpg,png,gif|required|max:10000'
         ];
     }
 }

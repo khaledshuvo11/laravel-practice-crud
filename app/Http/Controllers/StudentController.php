@@ -38,6 +38,10 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
+        $fileName = time() . '.' . $request->image->extension();
+        $request->image->storeAs('public/storage/images', $fileName);
+        // $form_data->image = $fileName;
+
         $form_data = $request->validated();
         Student::create($form_data);
         return redirect()->route('students.index');

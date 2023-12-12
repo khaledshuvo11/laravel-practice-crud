@@ -13,6 +13,7 @@ class Student extends Model
         'name',
         'email',
         'gender',
-        'date_of_birth'
+        'date_of_birth',
+        'image'
     ];
 }

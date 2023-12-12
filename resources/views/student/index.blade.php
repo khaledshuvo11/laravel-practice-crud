@@ -21,6 +21,7 @@
                                     <th class="border border-slate-300">E-mail</th>
                                     <th class="border border-slate-300">Date-Of-Birth</th>
                                     <th class="border border-slate-300">Gender</th>
+                                    <th class="border border-slate-300">Image</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -32,6 +33,9 @@
                                     <td class="border border-slate-300">{{ $student->email }}</td>
                                     <td class="border border-slate-300">{{ date('Y-m-d', strtotime($student->date_of_birth)) }}</td>
                                     <td class="border border-slate-300">{{ $student->gender }}</td>
+                                    <td>
+                                        <img width="50px" src="{{ asset('storage/image') }}" alt="">
+                                    </td>
                                     <td class="border border-slate-300">
                                         <a href="{{ route('students.edit', $student->id) }}">Edit</a> |
                                         <form action="{{ route('students.destroy', $student->id) }}" method="post">

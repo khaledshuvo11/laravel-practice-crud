@@ -89,6 +89,20 @@
                                         >
                                         <label for="others">Others</label>
                                     </div>
+
+                                    <div>
+                                        <label for="image" class="block">Image</label>
+                                        <input
+                                        type="file"
+                                        id="image" 
+                                        name="image" 
+                                        value="{{ old('image') }}"
+                                        class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-full">
+                                        @error('image')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
                                 </div>                             
                                 <button class="block w-full bg-yellow-400 mt-3 hover:bg-yellow-300 p-4 rounded text-white transition duration-300">Submit</button>
                             </form>

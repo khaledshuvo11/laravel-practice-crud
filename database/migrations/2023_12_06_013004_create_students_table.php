@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email', 100);
             $table->enum('gender', ['male', 'female', 'others']);
             $table->date('date_of_birth');
+            $table->string('image');
             $table->timestamps();
         });
     }
