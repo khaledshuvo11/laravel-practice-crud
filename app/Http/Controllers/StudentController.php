@@ -84,6 +84,13 @@ class StudentController extends Controller
     public function update(UpdateStudentRequest $request, Student $student)
     {
         $form_data = $request->validated();
+
+        if($request->hasfile('image')) {
+            $fileName = time() . '.' . $request->image->extension();
+            $request->image->storeAs('public/images', $fileName);
+            $form_data['image'] = $fileName;
+        }
+
         Student::whereid($student->id)->update($form_data);
         return redirect()->route('students.index');
     }

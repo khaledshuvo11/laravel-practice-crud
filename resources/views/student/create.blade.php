@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Student') }}
+            {{ __('Student Create') }}
         </h2>
     </x-slot>
 
@@ -14,7 +14,7 @@
                             <a class=" bg-black text-white rounded-md hover:bg-sky-400 px-4 py-2" href="{{ route('students.index') }}">
                                 << Go to home page
                             </a>
-                            <form action="{{ route('students.store') }}" method="post">
+                            <form action="{{ route('students.store') }}" method="post" enctype="multipart/form-data">
                              @csrf
                                 <div class="grid grid-cols-2 gap-5">
                                     <div>

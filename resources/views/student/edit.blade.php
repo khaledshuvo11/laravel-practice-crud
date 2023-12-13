@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Student') }}
+            {{ __('Student Edit') }}
         </h2>
     </x-slot>
 
@@ -21,7 +21,7 @@
                             <a class=" bg-black text-white rounded-md hover:bg-sky-400 px-4 py-2" href="{{ route('students.index') }}">
                                 << Go to home page
                             </a>
-                            <form action="{{ route('students.update', $student->id) }}" method="post">
+                            <form action="{{ route('students.update', $student->id) }}" method="post" enctype="multipart/form-data">
                              @csrf
                              @method('put')
                                 <div class="grid grid-cols-2 gap-5">
@@ -46,7 +46,7 @@
                                         id="email" 
                                         name="email" 
                                         placeholder="Email."
-                                        value="{{ old('name') ?? $student->email }}"
+                                        value="{{ old('email') ?? $student->email }}"
                                         class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-full">
                                         @error('email')
                                             <span class="text-red-700">{{$message}}</span>
@@ -97,6 +97,22 @@
                                         >
                                         <label for="others">Others</label>
                                     </div>
+
+                                    <div>
+                                        <label for="image" class="block">Image</label>
+                                        <input
+                                        type="file"
+                                        id="image" 
+                                        name="image" 
+                                        class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-full">
+                                        @error('image')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
+                                        <div>
+                                            <img width="100px" src="{{ asset("storage/images/$student->image") }}" alt="">
+                                        </div>
+                                    </div>
+
                                 </div>                             
                                 <button class="block w-full bg-yellow-400 mt-3 hover:bg-yellow-300 p-4 rounded text-white transition duration-300">Submit</button>
                             </form>

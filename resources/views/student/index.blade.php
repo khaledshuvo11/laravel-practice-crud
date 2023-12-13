@@ -33,8 +33,8 @@
                                     <td class="border border-slate-300">{{ $student->email }}</td>
                                     <td class="border border-slate-300">{{ date('Y-m-d', strtotime($student->date_of_birth)) }}</td>
                                     <td class="border border-slate-300">{{ $student->gender }}</td>
-                                    <td>
-                                        <img width="50px" src="{{ asset('storage/image') }}" alt="">
+                                    <td class="border border-slate-300">
+                                        <img width="50px" src="{{ asset("storage/images/$student->image") }}" alt="">
                                     </td>
                                     <td class="border border-slate-300">
                                         <a href="{{ route('students.edit', $student->id) }}">Edit</a> |
