@@ -30,11 +30,10 @@ class StoreStudentRequest extends FormRequest
             'date_of_birth' => 'required',
             'gender'        => 'required',
             'image'         => 'mimes:jpeg,jpg,png,gif|required|max:10000',
-            'student_id'    => 'required',
             'class_name'    => 'required',
             'roll_no'       => 'required',
             'reg_no'        => 'required',
-            'result'        => 'required'
+            'result'        => 'nullable'
         ];
     }
 }

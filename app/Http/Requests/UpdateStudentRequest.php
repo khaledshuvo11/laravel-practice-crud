@@ -29,7 +29,11 @@ class UpdateStudentRequest extends FormRequest
             'email'         => 'required|email',
             'date_of_birth' => 'required',
             'gender'        => 'required',
-            'image'         => 'mimes:jpeg,jpg,png,gif|required|max:10000'
+            'image'         => 'mimes:jpeg,jpg,png,gif|nullable|max:10000',
+            'class_name'    => 'required',
+            'roll_no'       => 'required',
+            'reg_no'        => 'required',
+            'result'        => 'nullable'
         ];
     }
 }

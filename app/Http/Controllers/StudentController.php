@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\ClassInfo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 
@@ -99,7 +101,12 @@ class StudentController extends Controller
             $form_data['image'] = $fileName;
         }
 
-        Student::whereid($student->id)->update($form_data);
+        $student_data = collect($form_data)->except('class_name', 'roll_no', 'reg_no', 'result')->toArray();
+        $class_data = collect($form_data)->except('name', 'email', 'date_of_birth', 'gender', 'image')->toArray();
+        DB::transaction(function () use($student, $student_data, $class_data) {
+            Student::whereid($student->id)->update($student_data);
+            ClassInfo::whereStudentId($student->id)->update($class_data);
+        });
         return redirect()->route('students.index');
     }
 
