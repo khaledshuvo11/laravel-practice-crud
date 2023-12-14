@@ -106,8 +106,7 @@
                                     <div>
                                         <label for="class_name" class="block">Class-name</label>
                                         <select name="class_name" id="class_name" class="w-full">
-                                            <option value="">One</option>
-                                            <option value="">Two</option>
+                                            
                                         </select>
                                         @error('class_name')
                                             <span class="text-red-700">{{$message}}</span>

@@ -17,7 +17,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="w-full">
-                        <div class="bg-white shadow-2xl">
+                        <div class="bg-white">
                             <a class=" bg-black text-white rounded-md hover:bg-sky-400 px-4 py-2" href="{{ route('students.index') }}">
                                 << Go to home page
                             </a>
@@ -104,13 +104,53 @@
                                         type="file"
                                         id="image" 
                                         name="image" 
-                                        class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-full">
+                                        class="py-2 focus:outline-none focus:border-purple-500">
                                         @error('image')
                                             <span class="text-red-700">{{$message}}</span>
                                         @enderror
                                         <div>
                                             <img width="100px" src="{{ asset("storage/images/$student->image") }}" alt="">
                                         </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="class_name" class="block">Class-name</label>
+                                        <select name="class_name" id="class_name" class="w-full capitalize">
+                                            @foreach ($initialData['clses'] as $cls)
+                                            <option value="{{ $cls }}">{{ $cls }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('class_name')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div>
+                                        <label for="roll_no" class="block">Roll:</label>
+                                        <input type="text" id="roll_no" name="roll_no" class="w-full" value="{{ $student->roll_no }}">
+                                        @error('roll_no')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div>
+                                        <label for="reg_no" class="block">Reg:</label>
+                                        <input type="text" id="reg_no" name="reg_no" class="w-full" value="{{ $student->reg_no }}">
+                                        @error('reg_no')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div>
+                                        <label for="result" class="block">Result</label>
+                                        <select name="result" id="result" class="w-full">
+                                            @foreach ($initialData['results'] as $result)
+                                                <option value="{{ $result }}">{{ $result }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('result')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
                                     </div>
 
                                 </div>                             
