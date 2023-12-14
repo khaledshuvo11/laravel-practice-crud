@@ -22,6 +22,10 @@
                                     <th class="border border-slate-300">Date-Of-Birth</th>
                                     <th class="border border-slate-300">Gender</th>
                                     <th class="border border-slate-300">Image</th>
+                                    <th class="border border-slate-300">Class-Name</th>
+                                    <th class="border border-slate-300">Roll</th>
+                                    <th class="border border-slate-300">Reg</th>
+                                    <th class="border border-slate-300">Result</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -36,6 +40,10 @@
                                     <td class="border border-slate-300">
                                         <img width="50px" src="{{ asset("storage/images/$student->image") }}" alt="">
                                     </td>
+                                    <td class="border border-slate-300">{{ $student->class_name }}</td>
+                                    <td class="border border-slate-300">{{ $student->roll_no }}</td>
+                                    <td class="border border-slate-300">{{ $student->reg_no }}</td>
+                                    <td class="border border-slate-300">{{ $student->result }}</td>
                                     <td class="border border-slate-300">
                                         <a href="{{ route('students.edit', $student->id) }}">Edit</a> |
                                         <form action="{{ route('students.destroy', $student->id) }}" method="post">

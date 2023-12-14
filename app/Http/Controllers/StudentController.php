@@ -16,7 +16,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $students = Student::paginate(25);
+        $students = Student::select('students.*', 'class_name', 'roll_no', 'reg_no', 'result')
+        ->join('class_infos', 'student_id', 'students.id')
+        ->paginate(25);
         return view('student.index', compact('students'));
     }
 
