@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('class_name');
             $table->string('roll_no');
             $table->string('reg_no');
-            $table->string('result')->nullable();
+            $table->string('result', ['A+','A','A-','B','C','D','E','F'])->nullable();
             $table->timestamps();
         });
     }

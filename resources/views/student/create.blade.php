@@ -97,8 +97,44 @@
                                         id="image" 
                                         name="image" 
                                         value="{{ old('image') }}"
-                                        class="border border-gray-500 px-4 py-2 focus:outline-none focus:border-purple-500 w-full">
+                                        class="py-2 focus:outline-none focus:border-purple-500">
                                         @error('image')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div>
+                                        <label for="class_name" class="block">Class-name</label>
+                                        <select name="class_name" id="class_name" class="w-full">
+                                            <option value="">One</option>
+                                            <option value="">Two</option>
+                                        </select>
+                                        @error('class_name')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div>
+                                        <label for="roll_no" class="block">Roll:</label>
+                                        <input type="text" id="roll_no" name="roll_no" class="w-full">
+                                        @error('roll_no')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div>
+                                        <label for="reg_no" class="block">Reg:</label>
+                                        <input type="text" id="reg_no" name="reg_no" class="w-full">
+                                        @error('reg_no')
+                                            <span class="text-red-700">{{$message}}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div>
+                                        <label for="result" class="block">Result</label>
+                                        <select name="result" id="result" class="w-full">
+                                        </select>
+                                        @error('result')
                                             <span class="text-red-700">{{$message}}</span>
                                         @enderror
                                     </div>

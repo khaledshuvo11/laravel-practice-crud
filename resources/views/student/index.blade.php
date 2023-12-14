@@ -38,7 +38,7 @@
                                     <td class="border border-slate-300">{{ date('Y-m-d', strtotime($student->date_of_birth)) }}</td>
                                     <td class="border border-slate-300">{{ $student->gender }}</td>
                                     <td class="border border-slate-300">
-                                        <img width="50px" src="{{ asset("storage/images/$student->image") }}" alt="">
+                                        <img class="ml-5 pl-5" width="100px" src="{{ asset("storage/images/$student->image") }}" alt="">
                                     </td>
                                     <td class="border border-slate-300">{{ $student->class_name }}</td>
                                     <td class="border border-slate-300">{{ $student->roll_no }}</td>
