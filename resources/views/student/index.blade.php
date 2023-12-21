@@ -7,6 +7,13 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @if ($message = Session::get('success'))
+            <!-- green-->
+            <div class="flex justify-between py-4 px-8 my-3 bg-[#98f5e1]  text-[#236c5b]">
+                <p class="font-sans">{{ $message }}</p>
+                <button class="font-bold">&#10005;</button>
+            </div>
+            @endif
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="table-responsive">

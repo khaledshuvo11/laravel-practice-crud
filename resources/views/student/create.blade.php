@@ -105,8 +105,10 @@
 
                                     <div>
                                         <label for="class_name" class="block">Class-name</label>
-                                        <select name="class_name" id="class_name" class="w-full">
-                                            
+                                        <select name="class_name" id="class_name" class="w-full capitalize">
+                                            @foreach($initialData['clses'] as $cls)
+                                                <option value="{{ $cls }}">{{ $cls }}</option>
+                                            @endforeach
                                         </select>
                                         @error('class_name')
                                             <span class="text-red-700">{{$message}}</span>
@@ -132,6 +134,9 @@
                                     <div>
                                         <label for="result" class="block">Result</label>
                                         <select name="result" id="result" class="w-full">
+                                            @foreach($initialData['results'] as $rslt)
+                                                <option value="{{ $rslt }}">{{ $rslt }}</option>
+                                            @endforeach
                                         </select>
                                         @error('result')
                                             <span class="text-red-700">{{$message}}</span>

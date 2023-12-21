@@ -31,7 +31,8 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view('student.create');
+        $initialData = $this->initialData();
+        return view('student.create', compact('initialData'));
     }
 
     /**
@@ -40,7 +41,7 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStudentRequest $request)
+    public function store(StoreStudentRequest $request, Student $student)
     {
         $form_data = $request->validated();
         
@@ -50,6 +51,14 @@ class StudentController extends Controller
             $request->image->storeAs('public/images', $fileName);
             $form_data['image'] = $fileName;
         }
+
+        $student_data = collect($form_data)->except('class_name', 'roll_no', 'reg_no', 'result')->toArray();
+        $class_data = collect($form_data)->except('name', 'email', 'date_of_birth', 'gender', 'image')->toArray();
+        DB::transaction(function () use($student, $student_data, $class_data) {
+            $student_id['student.id'] = $student->id;
+            Student::create($student_data);
+            ClassInfo::create($class_data, $student_id);
+        });
 
         
         Student::create($form_data);
